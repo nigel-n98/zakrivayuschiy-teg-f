@@ -306,8 +306,6 @@ button {
 /* Всплывающее  диалоговое окно */
 .dialog__window {
   padding: 24px 24px;
-  background: transparent;
-  color: red;
 }
 
 /* Контейнер с описанием диалогового окна */
