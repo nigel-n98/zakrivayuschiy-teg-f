@@ -46,7 +46,7 @@
 .header__logo {
   font-size: var(--header-logo-font-size);
   font-weight: 400;
-  line-height: 100%; 
+  line-height: 100%;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--title-text-color);
@@ -54,7 +54,6 @@
 
 .header__logo:focus-visible {
   padding: 0px;
-  outline: none;
   outline: 2px solid var(--accent-color);
 }
 
@@ -86,7 +85,7 @@
 .card__title {
   font-size: var(--main-text-size);
   font-variation-settings: var(--font-variation-weight-bold);
-  line-height: 121%; 
+  line-height: 121%;
   padding: 5px 10px;
   color: var(--title-text-color);
   border-block-end: inherit;
@@ -239,7 +238,6 @@ button {
 /* Доп. класс кнопки Like */
 .button {
   position: relative;
-  font-size: var(--main-font-size);
   color: var(--secondary-color);
   border: 2px solid var(--border-color);
   font-family: var(--accent-font-family);
@@ -308,6 +306,8 @@ button {
 /* Всплывающее  диалоговое окно */
 .dialog__window {
   padding: 24px 24px;
+  background: transparent;
+  color: red;
 }
 
 /* Контейнер с описанием диалогового окна */
@@ -364,12 +364,15 @@ dialog::backdrop {
     min-width: 28px;
     min-height: 28px;
   }
+  .dialog__window{
+    padding: 30px 36px;
+  }
+  .dialog__window-items {
+    margin-block-end: 25px;
+  }
   .dialog__window-button {
-    padding: 12px 115px;
+    display: block;
+    padding: 10px 110px;
+    margin: 0 auto;
   }
 }
-
-link[rel="icon"] {
-  fill: #ff5733; /* Замените на нужный цвет */
-}
-
