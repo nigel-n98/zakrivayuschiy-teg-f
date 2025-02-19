@@ -8,8 +8,8 @@
     --accent-font-family: "PressStart2P", sans-serif;
     --main-font-size: 18px;
     --secondary-font-size: 14px;
-    --font-variation-weight-normal: "wght" 400;
-    --font-variation-weight-bold: "wght" 700;
+    --font-variation-weight-normal: 400;
+    --font-variation-weight-bold: 700;
     --title-text-color: #000;
     --main-text-color: #000;
     --header-logo-font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);

@@ -15,7 +15,7 @@
   min-block-size: 100dvb;
   font-family: var(--main-font-family);
   font-size: var(--main-font-size);
-  font-variation-settings: var(--font-variation-weight-normal);
+  font-variation-settings: 'wght' var(--font-variation-weight-normal);
   background-image: var(--bg-image);
   background-position: center;
   background-repeat: no-repeat;
@@ -84,7 +84,7 @@
 /* Заголовок карточки */
 .card__title {
   font-size: var(--main-text-size);
-  font-variation-settings: var(--font-variation-weight-bold);
+  font-variation-settings: 'wght' var(--font-variation-weight-bold);
   line-height: 121%;
   padding: 5px 10px;
   color: var(--title-text-color);
@@ -189,7 +189,7 @@
 
 /* Описание карточки */
 .card__text {
-  font-variation-settings: var(--font-variation-weight-normal);
+  font-variation-settings: 'wght' var(--font-variation-weight-normal);
   color: var(--main-text-color);
   line-height: 117%;
 }
@@ -362,7 +362,7 @@ dialog::backdrop {
     min-width: 28px;
     min-height: 28px;
   }
-  .dialog__window{
+  .dialog__window {
     padding: 30px 36px;
   }
   .dialog__window-items {
