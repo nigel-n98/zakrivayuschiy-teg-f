@@ -348,8 +348,8 @@ dialog::backdrop {
   .header__section {
     padding: 120px 120px;
   }
-    .header__title {  
-     width: max-content;
+  .header__title {
+    width: max-content;
   }
   .card__image-label {
     inset: 20px 10px auto auto;
