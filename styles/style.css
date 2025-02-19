@@ -4,13 +4,372 @@
 ✦ like-icon — для svg-иконки анимированного сердца
 ✦ card__like-button — для кнопки Like рядом с иконкой
 ✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца-
+✦ button__text — для обозначения текстового элемента внутри кнопки+
 
 */
 
+/* Основные стили страницы */
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--main-font-family);
+  font-size: var(--main-font-size);
+  font-variation-settings: var(--font-variation-weight-normal);
+  background-image: var(--bg-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
+
+/* Секция хедер */
+.header {
+  width: clamp(375px, 100%, 700px);
+  background-color: var(--bg-color);
+  font-family: var(--accent-font-family);
+  margin: 100px auto;
+  border: 2px solid var(--border-color);
+}
+
+/* Внутренний контейнер хедер */
+.header__section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 128px 121px;
+}
+
+/* Лого html в хедер */
+.header__logo {
+  font-size: var(--header-logo-font-size);
+  font-weight: 400;
+  line-height: 100%; 
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--title-text-color);
+}
+
+.header__logo:focus-visible {
+  padding: 0px;
+  outline: none;
+  outline: 2px solid var(--accent-color);
+}
+
+/* Заголовок в хедер */
+.header__title {
+  font-size: var(--header-title-font-size);
+  font-weight: 400;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: var(--title-text-color);
+}
+
+/* Секция с карточками в main */
+.main__cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/* Карточка */
+.card {
+  width: clamp(375px, 100%, 700px);
+  margin: 0 auto;
+  background-color: var(--bg-color);
+  border: 2px solid var(--border-color);
+}
+
+/* Заголовок карточки */
+.card__title {
+  font-size: var(--main-text-size);
+  font-variation-settings: var(--font-variation-weight-bold);
+  line-height: 121%; 
+  padding: 5px 10px;
+  color: var(--title-text-color);
+  border-block-end: inherit;
+}
+
+/* Контейнер для изображения карточки */
+.card__image-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Изображение в карточке */
+.card__image-section img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Фильтр черно-белого с уровнем серого */
+.filter__grayscale {
+  filter: grayscale(0.8);
+}
+
+/* Фильтр насыщенности */
+.filter__saturate {
+  filter: saturate(3);
+}
+
+/* Фильтр сдвигает все цвета на 30 градусов по цветовому кругу. */
+.filter__hue-rotate {
+  filter: hue-rotate(30deg);
+}
+
+/* Фильтр инверт. цвета */
+.filter__invert {
+  filter: invert(0.8);
+}
+
+/* Фильтр сепия */
+.filter__sepia {
+  filter: sepia(0.9);
+}
+
+/* Фильтр размытия */
+.filter__blur {
+  filter: blur(7px);
+}
+
+/* Фильтр - сдвигает все цвета на 90 градусов по цветовому кругу + размытие */
+.filter_hue-rotate-blur {
+  filter: hue-rotate(90deg) blur(2px);
+}
+
+/* Надпись на карточке изображения */
+.card__image-label {
+  content: "";
+  position: absolute;
+  inset: 25px 25px auto auto;
+  font-family: var(--accent-font-family);
+  font-size: var(--secondary-font-size);
+  text-transform: uppercase;
+  color: var(--label-text-color);
+  mix-blend-mode: hard-light;
+  
+  /* Обводка текста через stroke */
+  @supports (-webkit-text-stroke: 1px var(--text-stroke-color)) {
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+    text-stroke: 1px var(text-stroke-color);
+  }
+  
+  /* Обводка текста через text-shadow, если не сработает  stroke */
+  @supports not (-webkit-text-stroke: 1px var(--text-stroke-color)) {
+    text-shadow: 
+      -1px -1px 0 var(--text-stroke-color),
+      1px -1px 0 var(--text-stroke-color),
+      -1px 1px 0 var(--text-stroke-color),
+      1px 1px 0 var(--text-stroke-color);
+  }
+}
+
+/* Нижний регистр надписи на карточке изображения */
+.cards-list__item:nth-child(n + 4):nth-child(-n + 8) .card__image-label {
+  text-transform: lowercase;
+}
+
+/* Контейнер описания карточки */
+.card__desctiption {
+  padding: 25px;
+  border-block-start: inherit;
+}
+
+/* Контейнер для текста в описании */
+.card__text-section {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-block-end: 25px;
+}
+
+/* Описание карточки */
+.card__text {
+  font-variation-settings: var(--font-variation-weight-normal);
+  color: var(--main-text-color);
+  line-height: 117%;
+}
+
+/* Контейнер кнопок в описании */
+.card__buttons {
+  display: flex;
+  justify-content: end;
+  gap: 5px;
+}
+
+/* Кнопки сайта в состоянии hover */
+button {
+  cursor: pointer;
+}
+
+/* Кнопка с иконкой сердца */
+.card__icon-button {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  height: 38px;
+}
+
+/* Кнопка с иконкой сердца в состоянии focus */
+.card__icon-button:focus {
+  border: none;
+  outline: none;
+}
+
+/* Кнопка с иконкой сердца в состоянии focus-visible */
+.card__icon-button:focus-visible {
+  border: 2px solid var(--border-color);
+  transition: border 0.3s ease;
+  outline: none;
+}
+
+/* Кнопка Like */
+.card__like-button {
+  min-width: 130px;
+  height: 38px;
+  padding: 0;
+}
+
+/* Доп. класс кнопки Like */
+.button {
+  position: relative;
+  font-size: var(--main-font-size);
+  color: var(--secondary-color);
+  border: 2px solid var(--border-color);
+  font-family: var(--accent-font-family);
+  font-size: var(--secondary-font-size);
+  background-color: var(--secondary-color);
+  outline: none;
+  padding: 0;
+}
+
+/* Псевдоэлемент before у доп. класса кнопки Like */
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Доп. класс кнопки Like в состоянии :hover::before  */
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+/* Доп. класс кнопки Like в состоянии focus */
+.button:focus-visible {
+  box-shadow: 2px 2px var(--accent-color);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Спан внутри кнопки Like*/
+.button__text {
+  mix-blend-mode: difference;
+}
+
+/* Кнопка сохранения в меню */
+.save__button {
+  display: flex;
+  gap: 8px;
+  min-width: 339px;
+  min-height: 55px;
+  background-color: var(--secondary-color);
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto 103px;
+}
+
+/* Маленькая иконка в кнопке сохранить */
+.floppy__icon-small {
+  min-width: 21px;
+  min-height: 21px;
+  color: var(--secondary-color);
+  mix-blend-mode: difference;
+}
+
+/* Большая кнопка в диалоговом окне */
+.floppy__icon-big {
+  min-width: 39px;
+  min-height: 39px;
+}
+
+/* Всплывающее  диалоговое окно */
+.dialog__window {
+  padding: 24px 24px;
+}
+
+/* Контейнер с описанием диалогового окна */
+.dialog__window-items {
+  display: flex;
+  gap: 20px;
+  padding-top: 5px;
+  align-items: center;
+  margin-block-end: 30px;
+}
+
+/* Описание диалогового окна */
+.dialog__text {
+  font-family: var(--accent-font-family);
+  font-size: var(--secondary-font-size);
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+/* Кнопка диалогового окна */
+.dialog__window-button {
+  background-color: var(--secondary-color);
+  border: 2px solid var(--border-color);
+  font-family: var(--accent-font-family);
+  font-size: var(--secondary-font-size);
+  line-height: 90%;
+  text-transform: uppercase;
+  padding: 12px 132px;
+  cursor: pointer;
+}
+
+/* Прозрачность заднего фона диалогового окна */
+dialog::backdrop {
+  background-color: var(--accent-color);
+  opacity: 75%;
+}
+
+@media (width <= 375px) {
+  .header__section {
+    padding: 120px 120px;
+  }
+    .header__title {
+    white-space: nowrap;
+  }
+  .card__image-label {
+    inset: 20px 10px auto auto;
+  }
+  .save__button {
+    flex-direction: column;
+    min-width: 310px;
+    min-height: 84px;
+  }
+  .floppy__icon-small {
+    min-width: 28px;
+    min-height: 28px;
+  }
+  .dialog__window-button {
+    padding: 12px 115px;
+  }
+}
+
+link[rel="icon"] {
+  fill: #ff5733; /* Замените на нужный цвет */
+}
+

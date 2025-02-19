@@ -9,3 +9,80 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
+/* Анимация с увеличением сердца */
+@keyframes heartbeat {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 1.25;
+  }
+}
+
+/* Анимация искр сердца */
+@keyframes heart-sparks {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: red;
+  }
+}
+
+/* Убираем прозрачность у SVG в path */
+.core,
+.main-body,
+.sparks {
+  fill: transparent;
+}
+
+/* path сердцевина */
+.core {
+  transition: fill linear var(--animation-time) 0.03s;
+}
+
+/* path тело сердца */
+.main-body {
+  transition: fill linear var(--animation-time);
+}
+/* При наведении на иконку сердца, перекрашивается сердцевина */
+.card__icon-button:hover .core {
+  fill: var(--accent-color);
+  transition: fill linear var(--animation-time);
+}
+
+/* При наведении на иконку сердца, перекрашивается тело сердца */
+.card__icon-button:hover .main-body {
+  fill: var(--accent-color);
+  transition: fill linear var(--animation-time) 0.05s;
+}
+
+/* При клике на иконку сердца, перекрашивается сердцевина */
+.card__icon-button:active .core {
+  fill: var(--fill-heart);
+  transition: fill linear var(--animation-time) 0.05s;
+}
+
+/* При клике на иконку сердца, перекрашивается тело сердца */
+.card__icon-button:active .main-body {
+  fill: var(--fill-heart);
+  transition: fill linear var(--animation-time) 0.05s;
+}
+
+.like-icon.is-liked {
+  animation: 1 ease-in var(--animation-time) 0.1s alternate heartbeat;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--fill-heart);
+  transition: fill linear var(--animation-time) 0.05s;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--fill-heart);
+  transition: fill linear var(--animation-time);
+}
+
+.like-icon.is-liked .sparks {
+  animation: 1 ease-in var(--animation-time) var(--animation-time) heart-sparks;
+}
