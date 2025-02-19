@@ -169,7 +169,7 @@
   }
 }
 
-/* Нижний регистр надписи на карточке изображения */
+/* Нижний регистр надписи на карточках изображений */
 .cards-list__item:nth-child(n + 4):nth-child(-n + 8) .card__image-label {
   text-transform: lowercase;
 }
