@@ -45,6 +45,12 @@
 .main-body {
   transition: fill linear var(--animation-time);
 }
+
+/* path контур сердца */
+.contour {
+  transition: fill linear 0.1s;
+}
+
 /* При наведении на иконку сердца, перекрашивается сердцевина */
 .card__icon-button:hover .core {
   fill: var(--accent-color);
@@ -85,4 +91,9 @@
 
 .like-icon.is-liked .sparks {
   animation: 1 ease-in var(--animation-time) var(--animation-time) heart-sparks;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--fill-heart);
+  transition: fill linear var(--animation-time) 0.06s;
 }

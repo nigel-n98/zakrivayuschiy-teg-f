@@ -218,7 +218,7 @@ button {
 
 /* Кнопка с иконкой сердца в состоянии focus */
 .card__icon-button:focus {
-  border: none;
+  border: 2px solid transparent;
   outline: none;
 }
 
